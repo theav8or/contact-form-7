@@ -10,7 +10,7 @@
 			$('div.wpcf7 > form').ajaxForm({
 				beforeSubmit: function(formData, jqForm, options) {
 					jqForm.wpcf7ClearResponseOutput();
-					jqForm.find('img.ajax-loader').css({ visibility: 'visible' });
+					jqForm.find('span.loader-wrap').css({ visibility: 'visible' });
 					return true;
 				},
 				beforeSerialize: function(jqForm, options) {
@@ -191,7 +191,7 @@
 		return this.each(function() {
 			$(this).find('div.wpcf7-response-output').hide().empty().removeClass('wpcf7-mail-sent-ok wpcf7-mail-sent-ng wpcf7-validation-errors wpcf7-spam-blocked');
 			$(this).find('span.wpcf7-not-valid-tip').remove();
-			$(this).find('img.ajax-loader').css({ visibility: 'hidden' });
+			$(this).find('span.loader-wrap').css({ visibility: 'hidden' });
 		});
 	};
 
