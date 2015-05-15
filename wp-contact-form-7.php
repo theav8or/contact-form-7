@@ -37,7 +37,14 @@ define( 'WPCF7_PLUGIN_NAME', trim( dirname( WPCF7_PLUGIN_BASENAME ), '/' ) );
 
 define( 'WPCF7_PLUGIN_DIR', untrailingslashit( dirname( __FILE__ ) ) );
 
-define( 'WPCF7_PLUGIN_URL', untrailingslashit( '/wp-content/plugins/contact-form-7' ) );
+if(defined('WP_CONTENT_DIR')) {
+  $parts = explode('/', WP_CONTENT_DIR);
+  $contentDir = array_pop($parts);
+} else {
+  $contentDir = 'wp-content';
+};
+
+define( 'WPCF7_PLUGIN_URL', untrailingslashit( "/$contentDir/plugins/contact-form-7" ) );
 
 define( 'WPCF7_PLUGIN_MODULES_DIR', WPCF7_PLUGIN_DIR . '/modules' );
 
